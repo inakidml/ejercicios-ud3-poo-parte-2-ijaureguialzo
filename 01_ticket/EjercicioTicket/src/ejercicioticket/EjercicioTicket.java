@@ -24,7 +24,6 @@ public class EjercicioTicket {
 
         Ticket t = new Ticket();
 
-        int numLineas = 0;
         String respuesta = null;
 
         do {
@@ -40,24 +39,21 @@ public class EjercicioTicket {
             System.out.print("Cantidad: ");
             l.setCantidad(Integer.parseInt(br.readLine()));
 
-            // Copiar la referencia en el array del Ticket
-            t.getLineas()[numLineas] = l;
-
-            // Uno más
-            numLineas++;
+            // Guardar el objeto en el Ticket
+            t.add(l);
             
             // ¿Continuar?
             System.out.print("¿Quiere añadir otro producto? (s|n): ");
             respuesta = br.readLine();
 
-        } while (numLineas < 10 && respuesta.equalsIgnoreCase("s") );
+        } while (t.getNumLineas() < 10 && respuesta.equalsIgnoreCase("s") );
 
         
         double total = 0;
         
         // Mostrar todas las líneas del Ticket
         System.out.println("PRODUCTO    CANTIDAD    TOTAL");
-        for (int i = 0; i < numLineas; i++) {
+        for (int i = 0; i < t.getNumLineas(); i++) {
             System.out.format("%12s %6sx%s %6s\n",
                     t.getLineas()[i].getProducto(),
                     t.getLineas()[i].getCantidad(),
