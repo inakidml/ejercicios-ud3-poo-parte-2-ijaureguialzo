@@ -16,7 +16,7 @@ public class LineaTicket {
     private double precio;
     
     public double total() {
-        return 0;
+        return cantidad*precio;
     }
 
     /**
