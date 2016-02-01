@@ -11,7 +11,7 @@ package ejercicioticket;
  */
 public class Ticket {
 
-    private LineaTicket[] lineas = new LineaTicket[10];
+    private LineaTicket[] lineas = new LineaTicket[EjercicioTicket.MAX_LINEAS];
 
     private int numLineas = 0;
 
@@ -24,19 +24,28 @@ public class Ticket {
     }
 
     public double total() {
-        return 0;
+        
+        double total = 0;
+
+        for (int i = 0; i < numLineas; i++) {
+            total += lineas[i].total();            
+        }
+
+        return total;
     }
 
     public void listado() {
-
+        // Mostrar todas las líneas del Ticket
+        System.out.println("PRODUCTO    CANTIDAD    TOTAL");
+        for (int i = 0; i < numLineas; i++) {
+            System.out.format("%12s %6sx%s %6s\n",
+                    lineas[i].getProducto(),
+                    lineas[i].getCantidad(),
+                    lineas[i].getPrecio(),
+                    lineas[i].total());
+        }
     }
 
-    /**
-     * @return the lineas
-     */
-    public LineaTicket[] getLineas() {
-        return lineas;
-    }
 
     /**
      * @return the numLineas

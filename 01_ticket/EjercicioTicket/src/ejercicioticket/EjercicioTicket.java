@@ -15,6 +15,10 @@ import java.io.InputStreamReader;
  */
 public class EjercicioTicket {
 
+    // Constante estática (de clase, no de instancia) visible en todo el programa
+    public static final int MAX_LINEAS = 10;
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -46,23 +50,14 @@ public class EjercicioTicket {
             System.out.print("¿Quiere añadir otro producto? (s|n): ");
             respuesta = br.readLine();
 
-        } while (t.getNumLineas() < 10 && respuesta.equalsIgnoreCase("s") );
+        } while (t.getNumLineas() < MAX_LINEAS && respuesta.equalsIgnoreCase("s") );
 
         
-        double total = 0;
+        // Mostrar el Ticket        
+        t.listado();
         
-        // Mostrar todas las líneas del Ticket
-        System.out.println("PRODUCTO    CANTIDAD    TOTAL");
-        for (int i = 0; i < t.getNumLineas(); i++) {
-            System.out.format("%12s %6sx%s %6s\n",
-                    t.getLineas()[i].getProducto(),
-                    t.getLineas()[i].getCantidad(),
-                    t.getLineas()[i].getPrecio(),
-                    t.getLineas()[i].total());
-
-            total += t.getLineas()[i].total();
-        }
-        System.out.println("TOTAL: "+total);
+        // Mostrar el total
+        System.out.println("TOTAL: "+t.total());
         
     }
 
