@@ -11,13 +11,33 @@ package ejercicioagenda;
  */
 public class Agenda {
     
+    // Constante definida a nivel de clase
     public static final int MAX_ALUMNOS = 24;
     
     private Alumno[] alumnos = new Alumno[MAX_ALUMNOS];
-    private int contador = 0;
+    private int contador = 0; // Número de objetos en el array
     
     public Alumno buscarAlumno( String nombre ) {
-        return null;
+        
+        // Aquí dejaremos el alumno, si lo encontramos
+        Alumno encontrado = null;
+        
+        int i = 0;
+
+        // Recorrer hasta que se nos acaben los datos o lo encontremos
+        while( i < contador && !alumnos[i].getNombre().equals(nombre) ) {
+            i++;
+        }
+
+        // ¿Hemos parado antes del final? -> Encontrado
+        if( i < contador )
+        {
+            // Copiamos su referencia para devolverla al programa principal
+            encontrado = alumnos[i];
+        }
+
+        // Devolvemos el objeto. Si no hemos encontrado alumno, devolverá null
+        return encontrado;
     }
     
     public void add( Alumno alumno ) {        

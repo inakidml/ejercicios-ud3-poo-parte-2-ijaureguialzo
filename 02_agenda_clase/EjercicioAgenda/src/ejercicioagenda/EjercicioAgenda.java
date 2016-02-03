@@ -43,13 +43,27 @@ public class EjercicioAgenda {
 
             // Guardar el objeto en el Ticket
             agenda.add(a);
-            
+
             // ¿Continuar?
             System.out.print("¿Quiere añadir otro alumno? (s|n): ");
             respuesta = br.readLine();
 
-        } while (agenda.totalAlumnos()< Agenda.MAX_ALUMNOS && respuesta.equalsIgnoreCase("s") );
+        } while (agenda.totalAlumnos() < Agenda.MAX_ALUMNOS && respuesta.equalsIgnoreCase("s"));
+
+        // Búsqueda lineal en el array de la primera ocurrencia
+        System.out.print("Nombre a buscar: ");
+        String nombre = br.readLine();
+
+        // Si lo encontramos hay objeto, si no, null
+        Alumno busqueda = agenda.buscarAlumno(nombre);
+
+        if (busqueda != null) {
+            System.out.println("Encontrado!!");
+            System.out.println(busqueda);
+        } else {
+            System.out.println("NO encontrado...");
+        }
 
     }
-    
+
 }

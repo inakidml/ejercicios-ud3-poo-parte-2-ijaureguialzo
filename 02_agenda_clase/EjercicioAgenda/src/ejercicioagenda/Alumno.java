@@ -71,6 +71,11 @@ public class Alumno {
     public void setFechaCumple(String fechaCumple) {
         this.fechaCumple = fechaCumple;
     }
+
+    @Override
+    public String toString() {
+        return "Alumno{" + "nombre=" + nombre + ", telefono=" + telefono + ", domicilio=" + domicilio + ", fechaCumple=" + fechaCumple + '}';
+    }
     
     
 }
