@@ -65,7 +65,31 @@ public class EjercicioEmpresaEmpleado {
                     }
                     break;
                 case 12:
-                    // TODO - Borrar una empresa 
+                    // Borrar una empresa 
+                    if (numEmpresas > 0) {
+
+                        // Elegir empresa
+                        for (int i = 0; i < numEmpresas; i++) {
+                            System.out.println((i + 1) + ". " + empresas[i].getNombre());
+                        }
+
+                        System.out.print("Elige empresa: ");
+                        int n = Integer.parseInt(br.readLine()) - 1;
+
+                        if (n < numEmpresas) {
+                            for (int i = n; i < numEmpresas-1; i++) {
+                                empresas[i] = empresas[i+1];
+                            }
+                            
+                            if( numEmpresas == MAX_EMPRESAS ) {
+                                empresas[MAX_EMPRESAS-1] = null;
+                            }
+
+                            numEmpresas -= 1;        
+                            
+                            System.out.println("INFO: Empresa borrada...");
+                        }                        
+                    }
                     break;
                 case 21:
                     // Añadir un operario
